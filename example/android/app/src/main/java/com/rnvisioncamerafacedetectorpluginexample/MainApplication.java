@@ -1,4 +1,4 @@
-package com.rnvisioncamerafacedetectorpluginexample;
+package com.VisionCameraFaceDetectorPluginexample;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

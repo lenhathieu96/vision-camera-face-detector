@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* RnVisionCameraFaceDetectorPluginExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RnVisionCameraFaceDetectorPluginExampleTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-RnVisionCameraFaceDetectorPluginExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-RnVisionCameraFaceDetectorPluginExample.a */; };
+		00E356F31AD99517003FC87E /* VisionCameraFaceDetectorPluginExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* VisionCameraFaceDetectorPluginExampleTests.m */; };
+		0C80B921A6F3F58F76C31292 /* libPods-VisionCameraFaceDetectorPluginExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-VisionCameraFaceDetectorPluginExample.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.a */; };
+		7699B88040F8A987B510C191 /* libPods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -22,27 +22,27 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = RnVisionCameraFaceDetectorPluginExample;
+			remoteInfo = VisionCameraFaceDetectorPluginExample;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* RnVisionCameraFaceDetectorPluginExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RnVisionCameraFaceDetectorPluginExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* VisionCameraFaceDetectorPluginExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionCameraFaceDetectorPluginExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* RnVisionCameraFaceDetectorPluginExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RnVisionCameraFaceDetectorPluginExampleTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* RnVisionCameraFaceDetectorPluginExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RnVisionCameraFaceDetectorPluginExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = RnVisionCameraFaceDetectorPluginExample/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = RnVisionCameraFaceDetectorPluginExample/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RnVisionCameraFaceDetectorPluginExample/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RnVisionCameraFaceDetectorPluginExample/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RnVisionCameraFaceDetectorPluginExample/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-RnVisionCameraFaceDetectorPluginExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RnVisionCameraFaceDetectorPluginExample.debug.xcconfig"; path = "Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample/Pods-RnVisionCameraFaceDetectorPluginExample.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-RnVisionCameraFaceDetectorPluginExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RnVisionCameraFaceDetectorPluginExample.release.xcconfig"; path = "Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample/Pods-RnVisionCameraFaceDetectorPluginExample.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-RnVisionCameraFaceDetectorPluginExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RnVisionCameraFaceDetectorPluginExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RnVisionCameraFaceDetectorPluginExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.release.xcconfig"; path = "Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* VisionCameraFaceDetectorPluginExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionCameraFaceDetectorPluginExampleTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* VisionCameraFaceDetectorPluginExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionCameraFaceDetectorPluginExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = VisionCameraFaceDetectorPluginExample/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = VisionCameraFaceDetectorPluginExample/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = VisionCameraFaceDetectorPluginExample/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = VisionCameraFaceDetectorPluginExample/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = VisionCameraFaceDetectorPluginExample/main.m; sourceTree = "<group>"; };
+		19F6CBCC0A4E27FBF8BF4A61 /* libPods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4392A12AC88292D35C810B /* Pods-VisionCameraFaceDetectorPluginExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisionCameraFaceDetectorPluginExample.debug.xcconfig"; path = "Target Support Files/Pods-VisionCameraFaceDetectorPluginExample/Pods-VisionCameraFaceDetectorPluginExample.debug.xcconfig"; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-VisionCameraFaceDetectorPluginExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisionCameraFaceDetectorPluginExample.release.xcconfig"; path = "Target Support Files/Pods-VisionCameraFaceDetectorPluginExample/Pods-VisionCameraFaceDetectorPluginExample.release.xcconfig"; sourceTree = "<group>"; };
+		5B7EB9410499542E8C5724F5 /* Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5DCACB8F33CDC322A6C60F78 /* libPods-VisionCameraFaceDetectorPluginExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VisionCameraFaceDetectorPluginExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = VisionCameraFaceDetectorPluginExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89C6BE57DB24E9ADA2F236DE /* Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.release.xcconfig"; path = "Target Support Files/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.a in Frameworks */,
+				7699B88040F8A987B510C191 /* libPods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,20 +59,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-RnVisionCameraFaceDetectorPluginExample.a in Frameworks */,
+				0C80B921A6F3F58F76C31292 /* libPods-VisionCameraFaceDetectorPluginExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* RnVisionCameraFaceDetectorPluginExampleTests */ = {
+		00E356EF1AD99517003FC87E /* VisionCameraFaceDetectorPluginExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* RnVisionCameraFaceDetectorPluginExampleTests.m */,
+				00E356F21AD99517003FC87E /* VisionCameraFaceDetectorPluginExampleTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = RnVisionCameraFaceDetectorPluginExampleTests;
+			path = VisionCameraFaceDetectorPluginExampleTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -83,7 +83,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* RnVisionCameraFaceDetectorPluginExample */ = {
+		13B07FAE1A68108700A75B9A /* VisionCameraFaceDetectorPluginExample */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -93,15 +93,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = RnVisionCameraFaceDetectorPluginExample;
+			name = VisionCameraFaceDetectorPluginExample;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-RnVisionCameraFaceDetectorPluginExample.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.a */,
+				5DCACB8F33CDC322A6C60F78 /* libPods-VisionCameraFaceDetectorPluginExample.a */,
+				19F6CBCC0A4E27FBF8BF4A61 /* libPods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,9 +116,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* RnVisionCameraFaceDetectorPluginExample */,
+				13B07FAE1A68108700A75B9A /* VisionCameraFaceDetectorPluginExample */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* RnVisionCameraFaceDetectorPluginExampleTests */,
+				00E356EF1AD99517003FC87E /* VisionCameraFaceDetectorPluginExampleTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -131,8 +131,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* RnVisionCameraFaceDetectorPluginExample.app */,
-				00E356EE1AD99517003FC87E /* RnVisionCameraFaceDetectorPluginExampleTests.xctest */,
+				13B07F961A680F5B00A75B9A /* VisionCameraFaceDetectorPluginExample.app */,
+				00E356EE1AD99517003FC87E /* VisionCameraFaceDetectorPluginExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,10 +140,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-RnVisionCameraFaceDetectorPluginExample.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-RnVisionCameraFaceDetectorPluginExample.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-VisionCameraFaceDetectorPluginExample.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-VisionCameraFaceDetectorPluginExample.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -151,9 +151,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* RnVisionCameraFaceDetectorPluginExampleTests */ = {
+		00E356ED1AD99517003FC87E /* VisionCameraFaceDetectorPluginExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "RnVisionCameraFaceDetectorPluginExampleTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "VisionCameraFaceDetectorPluginExampleTests" */;
 			buildPhases = (
 				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -167,14 +167,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = RnVisionCameraFaceDetectorPluginExampleTests;
-			productName = RnVisionCameraFaceDetectorPluginExampleTests;
-			productReference = 00E356EE1AD99517003FC87E /* RnVisionCameraFaceDetectorPluginExampleTests.xctest */;
+			name = VisionCameraFaceDetectorPluginExampleTests;
+			productName = VisionCameraFaceDetectorPluginExampleTests;
+			productReference = 00E356EE1AD99517003FC87E /* VisionCameraFaceDetectorPluginExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* RnVisionCameraFaceDetectorPluginExample */ = {
+		13B07F861A680F5B00A75B9A /* VisionCameraFaceDetectorPluginExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "RnVisionCameraFaceDetectorPluginExample" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "VisionCameraFaceDetectorPluginExample" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -189,9 +189,9 @@
 			);
 			dependencies = (
 			);
-			name = RnVisionCameraFaceDetectorPluginExample;
-			productName = RnVisionCameraFaceDetectorPluginExample;
-			productReference = 13B07F961A680F5B00A75B9A /* RnVisionCameraFaceDetectorPluginExample.app */;
+			name = VisionCameraFaceDetectorPluginExample;
+			productName = VisionCameraFaceDetectorPluginExample;
+			productReference = 13B07F961A680F5B00A75B9A /* VisionCameraFaceDetectorPluginExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -211,7 +211,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "RnVisionCameraFaceDetectorPluginExample" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "VisionCameraFaceDetectorPluginExample" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -224,8 +224,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* RnVisionCameraFaceDetectorPluginExample */,
-				00E356ED1AD99517003FC87E /* RnVisionCameraFaceDetectorPluginExampleTests */,
+				13B07F861A680F5B00A75B9A /* VisionCameraFaceDetectorPluginExample */,
+				00E356ED1AD99517003FC87E /* VisionCameraFaceDetectorPluginExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -272,15 +272,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample/Pods-RnVisionCameraFaceDetectorPluginExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VisionCameraFaceDetectorPluginExample/Pods-VisionCameraFaceDetectorPluginExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample/Pods-RnVisionCameraFaceDetectorPluginExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VisionCameraFaceDetectorPluginExample/Pods-VisionCameraFaceDetectorPluginExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample/Pods-RnVisionCameraFaceDetectorPluginExample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VisionCameraFaceDetectorPluginExample/Pods-VisionCameraFaceDetectorPluginExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -298,7 +298,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -320,7 +320,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RnVisionCameraFaceDetectorPluginExample-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VisionCameraFaceDetectorPluginExample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -333,15 +333,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -350,15 +350,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample/Pods-RnVisionCameraFaceDetectorPluginExample-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VisionCameraFaceDetectorPluginExample/Pods-VisionCameraFaceDetectorPluginExample-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample/Pods-RnVisionCameraFaceDetectorPluginExample-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VisionCameraFaceDetectorPluginExample/Pods-VisionCameraFaceDetectorPluginExample-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample/Pods-RnVisionCameraFaceDetectorPluginExample-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VisionCameraFaceDetectorPluginExample/Pods-VisionCameraFaceDetectorPluginExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -367,15 +367,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests/Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests/Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -404,7 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* RnVisionCameraFaceDetectorPluginExampleTests.m in Sources */,
+				00E356F31AD99517003FC87E /* VisionCameraFaceDetectorPluginExampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +422,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* RnVisionCameraFaceDetectorPluginExample */;
+			target = 13B07F861A680F5B00A75B9A /* VisionCameraFaceDetectorPluginExample */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -430,15 +430,15 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.debug.xcconfig */;
+			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = RnVisionCameraFaceDetectorPluginExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				INFOPLIST_FILE = VisionCameraFaceDetectorPluginExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,18 +451,18 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RnVisionCameraFaceDetectorPluginExample.app/RnVisionCameraFaceDetectorPluginExample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VisionCameraFaceDetectorPluginExample.app/VisionCameraFaceDetectorPluginExample";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-RnVisionCameraFaceDetectorPluginExample-RnVisionCameraFaceDetectorPluginExampleTests.release.xcconfig */;
+			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-VisionCameraFaceDetectorPluginExample-VisionCameraFaceDetectorPluginExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = RnVisionCameraFaceDetectorPluginExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				INFOPLIST_FILE = VisionCameraFaceDetectorPluginExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -475,19 +475,21 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RnVisionCameraFaceDetectorPluginExample.app/RnVisionCameraFaceDetectorPluginExample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VisionCameraFaceDetectorPluginExample.app/VisionCameraFaceDetectorPluginExample";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-RnVisionCameraFaceDetectorPluginExample.debug.xcconfig */;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-VisionCameraFaceDetectorPluginExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7JT3B3M742;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = RnVisionCameraFaceDetectorPluginExample/Info.plist;
+				INFOPLIST_FILE = VisionCameraFaceDetectorPluginExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,21 +501,27 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = RnVisionCameraFaceDetectorPluginExample;
+				PRODUCT_NAME = VisionCameraFaceDetectorPluginExample;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-RnVisionCameraFaceDetectorPluginExample.release.xcconfig */;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-VisionCameraFaceDetectorPluginExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = RnVisionCameraFaceDetectorPluginExample/Info.plist;
+				DEVELOPMENT_TEAM = 7JT3B3M742;
+				INFOPLIST_FILE = VisionCameraFaceDetectorPluginExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,8 +533,12 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = RnVisionCameraFaceDetectorPluginExample;
+				PRODUCT_NAME = VisionCameraFaceDetectorPluginExample;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -564,7 +576,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -572,6 +584,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -580,7 +593,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -592,12 +605,19 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -635,16 +655,20 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION,
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -655,12 +679,19 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -669,7 +700,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "RnVisionCameraFaceDetectorPluginExampleTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "VisionCameraFaceDetectorPluginExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -678,7 +709,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "RnVisionCameraFaceDetectorPluginExample" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "VisionCameraFaceDetectorPluginExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -687,7 +718,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "RnVisionCameraFaceDetectorPluginExample" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "VisionCameraFaceDetectorPluginExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

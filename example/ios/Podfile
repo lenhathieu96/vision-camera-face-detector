@@ -5,7 +5,7 @@ require Pod::Executable.execute_command('node', ['-p',
     {paths: [process.argv[1]]},
   )', __dir__]).strip
 
-platform :ios, min_ios_version_supported
+platform :ios, "13.0"
 prepare_react_native_project!
 
 # If you are using a `react-native-flipper` your iOS build will fail when `NO_FLIPPER=1` is set.
@@ -25,7 +25,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'RnVisionCameraFaceDetectorPluginExample' do
+target 'VisionCameraFaceDetectorPluginExample' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -45,7 +45,7 @@ target 'RnVisionCameraFaceDetectorPluginExample' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'RnVisionCameraFaceDetectorPluginExampleTests' do
+  target 'VisionCameraFaceDetectorPluginExampleTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -57,6 +57,11 @@ target 'RnVisionCameraFaceDetectorPluginExample' do
       config[:reactNativePath],
       :mac_catalyst_enabled => false
     )
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = "arm64"
+      config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+      config.build_settings['APPLICATION_EXTENSION_API_ONLY'] = 'NO' 
+    end
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end

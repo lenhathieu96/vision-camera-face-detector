@@ -1,29 +1,41 @@
-import { NativeModules, Platform } from 'react-native';
+import { type Frame, VisionCameraProxy } from 'react-native-vision-camera';
 
-const LINKING_ERROR =
-  `The package 'rn-vision-camera-face-detector-plugin' doesn't seem to be linked. Make sure: \n\n` +
-  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
-  '- You rebuilt the app after installing the package\n' +
-  '- You are not using Expo Go\n';
+export type FaceDirection =
+  | 'left-skewed'
+  | 'right-skewed'
+  | 'frontal'
+  | 'transitioning'
+  | 'unknown';
 
-// @ts-expect-error
-const isTurboModuleEnabled = global.__turboModuleProxy != null;
+export interface FaceDetectorResponse {
+  status: 0 | 1;
+  faceDirection: FaceDirection;
+  /**
+   *
+   * @ErrorCode :
+   * - 101: system error
+   * - 102: cannot get image from frame
+   * - 103: faces not found
+   * - 104: too many faces in frame
+   * - 105: faces is transitioning
+   * - 106: plugin not found
+   */
 
-const RnVisionCameraFaceDetectorPluginModule = isTurboModuleEnabled
-  ? require('./NativeRnVisionCameraFaceDetectorPlugin').default
-  : NativeModules.RnVisionCameraFaceDetectorPlugin;
+  errorCode?: 101 | 102 | 103 | 104 | 105 | 106;
+  frameData?: string;
+}
 
-const RnVisionCameraFaceDetectorPlugin = RnVisionCameraFaceDetectorPluginModule
-  ? RnVisionCameraFaceDetectorPluginModule
-  : new Proxy(
-      {},
-      {
-        get() {
-          throw new Error(LINKING_ERROR);
-        },
-      }
-    );
+const plugin = VisionCameraProxy.getFrameProcessorPlugin('detectFace');
 
-export function multiply(a: number, b: number): Promise<number> {
-  return RnVisionCameraFaceDetectorPlugin.multiply(a, b);
+export function detectFace(frame: Frame): FaceDetectorResponse {
+  'worklet';
+  if (!plugin) {
+    return {
+      status: 0,
+      faceDirection: 'unknown',
+      errorCode: 106,
+    };
+  }
+  //@ts-ignore
+  return plugin.call(frame);
 }

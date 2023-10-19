@@ -1,19 +1,64 @@
-import * as React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, SafeAreaView, View } from 'react-native';
+import {
+  Camera,
+  useCameraDevice,
+  useCameraPermission,
+  useFrameProcessor,
+} from 'react-native-vision-camera';
+import { Worklets } from 'react-native-worklets-core';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'rn-vision-camera-face-detector-plugin';
+import {
+  type FaceDetectorResponse,
+  detectFace,
+} from 'vision-camera-face-detector-plugin';
+
+const CAMERA_SIZE = 250;
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [errorCode, setErrorCode] = useState<number>(-1);
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+  const device = useCameraDevice('front');
+  const { hasPermission, requestPermission } = useCameraPermission();
+
+  const onGetFaceDetectorResponse = Worklets.createRunInJsFn(
+    (res: FaceDetectorResponse) => {
+      setErrorCode(res.errorCode ?? -1);
+      if (res.status === 1 && res.frameData) {
+      }
+    }
+  );
+
+  const frameProcessor = useFrameProcessor((frame) => {
+    'worklet';
+    const response = detectFace(frame);
   }, []);
 
+  useEffect(() => {
+    if (!hasPermission) {
+      requestPermission();
+    }
+  }, []);
+
+  if (device == null || !hasPermission) {
+    return <Text>No camera device</Text>;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.cameraContainer}>
+        <Camera
+          device={device}
+          isActive
+          style={styles.camera}
+          frameProcessor={frameProcessor}
+          //ML Kit use YUV format
+          pixelFormat="yuv"
+        />
+      </View>
+      <Text>{`Error code: ${errorCode}`}</Text>
+    </SafeAreaView>
   );
 }
 
@@ -23,9 +68,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+
+  cameraContainer: {
+    width: CAMERA_SIZE,
+    height: CAMERA_SIZE,
+    borderRadius: CAMERA_SIZE / 2,
+    marginVertical: 24,
+  },
+
+  camera: {
+    flex: 1,
   },
 });

@@ -1,5 +1,5 @@
 {
-  "name": "rn-vision-camera-face-detector-plugin",
+  "name": "vision-camera-face-detector-plugin",
   "version": "0.1.0",
   "description": "A Face detector plugin used for react-native-vision-camera",
   "main": "lib/commonjs/index",
@@ -68,6 +68,8 @@
     "react": "18.2.0",
     "react-native": "0.72.6",
     "react-native-builder-bob": "^0.20.0",
+    "react-native-vision-camera": "3.4.1",
+    "react-native-worklets-core": "^0.2.2",
     "release-it": "^15.0.0",
     "turbo": "^1.10.7",
     "typescript": "^5.0.2"
@@ -77,7 +79,9 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-vision-camera": ">= 3.4.0",
+    "react-native-worklets-core": ">=0.2.2"
   },
   "workspaces": [
     "example"
@@ -160,7 +164,7 @@
     ]
   },
   "codegenConfig": {
-    "name": "RNRnVisionCameraFaceDetectorPluginSpec",
+    "name": "RNVisionCameraFaceDetectorPluginSpec",
     "type": "modules",
     "jsSrcsDir": "src"
   }

@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.rnvisioncamerafacedetectorpluginexample"
+    namespace "com.VisionCameraFaceDetectorPluginexample"
     defaultConfig {
-        applicationId "com.rnvisioncamerafacedetectorpluginexample"
+        applicationId "com.VisionCameraFaceDetectorPluginexample"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

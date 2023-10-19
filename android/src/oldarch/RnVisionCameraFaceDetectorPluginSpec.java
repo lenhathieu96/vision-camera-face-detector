@@ -1,13 +1,11 @@
-package com.rnvisioncamerafacedetectorplugin;
+package com.visioncamerafacedetectorplugin;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
-import com.facebook.react.bridge.Promise;
 
-abstract class RnVisionCameraFaceDetectorPluginSpec extends ReactContextBaseJavaModule {
-  RnVisionCameraFaceDetectorPluginSpec(ReactApplicationContext context) {
+
+abstract class VisionCameraFaceDetectorPluginSpec extends ReactContextBaseJavaModule {
+  VisionCameraFaceDetectorPluginSpec(ReactApplicationContext context) {
     super(context);
   }
-
-  public abstract void multiply(double a, double b, Promise promise);
 }

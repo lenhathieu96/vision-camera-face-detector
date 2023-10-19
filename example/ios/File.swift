@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  RnVisionCameraFaceDetectorPluginExample
+//  VisionCameraFaceDetectorPluginExample
 //
 
 import Foundation
