@@ -7,26 +7,23 @@
   "types": "lib/typescript/src/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
+ 
   "files": [
     "src",
     "lib",
-    "android",
-    "ios",
-    "cpp",
-    "*.podspec",
-    "!ios/build",
-    "!android/build",
-    "!android/gradle",
-    "!android/gradlew",
-    "!android/gradlew.bat",
-    "!android/local.properties",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
-    "!**/.*"
+    "android",
+    "ios",
+    "cpp",
+    "VisionCameraFaceDetectorPlugin.podspec",
+    "!lib/typescript/example",
+    "!android/build",
+    "!ios/build"
   ],
   "scripts": {
-    "example": "yarn workspace rn-vision-camera-face-detector-plugin-example",
+    "example": "yarn workspace vision-camera-face-detector-plugin-example",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
@@ -34,6 +31,9 @@
     "prepare": "bob build",
     "release": "release-it"
   },
+  "workspaces": [
+    "example"
+  ],
   "keywords": [
     "react-native",
     "ios",

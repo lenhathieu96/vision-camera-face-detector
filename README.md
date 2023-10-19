@@ -1,17 +1,17 @@
-# rn-vision-camera-face-detector-plugin
+# vision-camera-face-detector-plugin
 
 A Face detector plugin used for react-native-vision-camera
 
 ## Installation
 
 ```sh
-npm install rn-vision-camera-face-detector-plugin
+npm install vision-camera-face-detector-plugin
 ```
 
 ## Usage
 
 ```js
-import { multiply } from 'rn-vision-camera-face-detector-plugin';
+import { multiply } from 'vision-camera-face-detector-plugin';
 
 // ...
 
