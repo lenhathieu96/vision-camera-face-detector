@@ -31,9 +31,7 @@
     "prepare": "bob build",
     "release": "release-it"
   },
-  "workspaces": [
-    "example"
-  ],
+ 
   "keywords": [
     "react-native",
     "ios",
