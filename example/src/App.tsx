@@ -10,7 +10,7 @@ import {
 import { Worklets } from 'react-native-worklets-core';
 
 import {
-  type FaceDetectorResponse,
+  FaceDetectorResponse,
   detectFace,
 } from 'vision-camera-face-detector-plugin';
 
@@ -33,6 +33,7 @@ export default function App() {
   const frameProcessor = useFrameProcessor((frame) => {
     'worklet';
     const response = detectFace(frame);
+    onGetFaceDetectorResponse(response);
   }, []);
 
   useEffect(() => {

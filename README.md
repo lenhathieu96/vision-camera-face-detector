@@ -2,26 +2,38 @@
 
 A Face detector plugin used for react-native-vision-camera
 
+## Requirement
+
+Android Minsdk: 26
+IOS target platform: 13
+
 ## Installation
 
 ```sh
 npm install vision-camera-face-detector-plugin
 ```
+or
+
+```sh
+yarn add vision-camera-face-detector-plugin
+```
+
+
 
 ## Usage
 
 ```js
-import { multiply } from 'vision-camera-face-detector-plugin';
+import { detectFace } from 'vision-camera-face-detector-plugin';
 
 // ...
 
-const result = await multiply(3, 7);
+const frameProcessor = useFrameProcessor((frame) => {
+'worklet';
+const response = detectFace(frame);
+}, []);
+
+// ...
 ```
-
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
-
 ## License
 
 MIT

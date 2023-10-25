@@ -25,7 +25,7 @@ export interface FaceDetectorResponse {
   frameData?: string;
 }
 
-const plugin = VisionCameraProxy.getFrameProcessorPlugin('detectFace');
+const plugin = VisionCameraProxy.initFrameProcessorPlugin('detectFace');
 
 export function detectFace(frame: Frame): FaceDetectorResponse {
   'worklet';
