@@ -9,13 +9,16 @@ import androidx.annotation.Nullable;
 
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
+
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.face.Face;
 import com.google.mlkit.vision.face.FaceDetection;
 import com.google.mlkit.vision.face.FaceDetector;
 import com.google.mlkit.vision.face.FaceDetectorOptions;
+
 import com.mrousavy.camera.frameprocessor.Frame;
 import com.mrousavy.camera.frameprocessor.FrameProcessorPlugin;
+
 import com.visioncamerafacedetectorplugin.models.FaceDetectorException;
 import com.visioncamerafacedetectorplugin.models.FaceDirection;
 
@@ -24,12 +27,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class VisionCameraFaceDetectorPluginModule extends FrameProcessorPlugin {
+public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
+
   private final int MAX_STABLE = 3;
   private int stableCount = 0;
   private FaceDirection _prevFaceDirection = FaceDirection.UNKNOWN;
-  final Map map = new HashMap<>();
 
+  Map<String, Object> resultMap = new HashMap<>();
   FaceDetectorOptions faceDetectorOptions =
           new FaceDetectorOptions.Builder()
                   .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_ACCURATE)
@@ -55,15 +59,17 @@ public class VisionCameraFaceDetectorPluginModule extends FrameProcessorPlugin {
   }
 
   private void setErrorResult(int errorCode){
-    map.put("status", 0);
-    map.put("errorCode",errorCode);
-    map.put("faceDirection", Utils.convertKebabCase(FaceDirection.UNKNOWN));
-    map.put("frameData", "");
+    resultMap.put("status", 0);
+    resultMap.put("errorCode",errorCode);
+    resultMap.put("faceDirection", Utils.convertKebabCase(FaceDirection.UNKNOWN));
+    resultMap.put("frameData", "");
   }
 
-  @Nullable
+  VisionCameraFaceDetectorPlugin(@Nullable Map<String, Object> options){}
+
+
   @Override
-  public Object callback(@NonNull Frame frame, @Nullable Map<String, Object> arguments)  {
+  public Object callback(@NonNull Frame frame, @Nullable Map<String, Object> params)  {
     try {
       Image mediaImage = frame.getImage();
 
@@ -104,21 +110,21 @@ public class VisionCameraFaceDetectorPluginModule extends FrameProcessorPlugin {
       String frameInBase64 =  Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
 
       stableCount = 0;
-      map.put("status", 1);
-      map.put("errorCode", -1);
-      map.put("faceDirection", Utils.convertKebabCase(_currentFaceDirection));
-      map.put("frameData", frameInBase64);
-      return map;
+      resultMap.put("status", 1);
+      resultMap.put("errorCode", -1);
+      resultMap.put("faceDirection", Utils.convertKebabCase(_currentFaceDirection));
+      resultMap.put("frameData", frameInBase64);
+      return resultMap;
 
     } catch (FaceDetectorException e) {
       Log.e("FaceDetection", e.getMessage());
       setErrorResult(e.getErrorCode());
-      return map;
+      return resultMap;
     }
     catch (Exception e){
       Log.e("FaceDetection", e.toString());
       setErrorResult(101);
-      return map;
+      return resultMap;
     }
   }
 }

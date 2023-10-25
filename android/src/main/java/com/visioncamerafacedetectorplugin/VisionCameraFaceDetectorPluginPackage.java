@@ -13,11 +13,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class VisionCameraFaceDetectorPluginPackage implements ReactPackage {
-  public VisionCameraFaceDetectorPluginPackage() {
-    FrameProcessorPluginRegistry.addFrameProcessorPlugin(
-            "detectFace",
-            options -> new VisionCameraFaceDetectorPluginModule()
-    );
+  static {
+    FrameProcessorPluginRegistry.addFrameProcessorPlugin("detectFace", options -> new VisionCameraFaceDetectorPlugin(options));
   }
 
   @NonNull

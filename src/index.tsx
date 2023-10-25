@@ -24,8 +24,10 @@ export interface FaceDetectorResponse {
   errorCode?: 101 | 102 | 103 | 104 | 105 | 106;
   frameData?: string;
 }
-
-const plugin = VisionCameraProxy.initFrameProcessorPlugin('detectFace');
+/**
+ * initFrameProcessorPlugin has error on init frame so cannot use
+ */
+const plugin = VisionCameraProxy.getFrameProcessorPlugin('detectFace');
 
 export function detectFace(frame: Frame): FaceDetectorResponse {
   'worklet';
