@@ -10921,9 +10921,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-vision-camera@npm:3.6.3":
-  version: 3.6.3
-  resolution: "react-native-vision-camera@npm:3.6.3"
+"react-native-vision-camera@npm:3.6.4":
+  version: 3.6.4
+  resolution: "react-native-vision-camera@npm:3.6.4"
   peerDependencies:
     react: "*"
     react-native: "*"
@@ -10931,7 +10931,7 @@ __metadata:
   peerDependenciesMeta:
     react-native-worklets-core:
       optional: true
-  checksum: 572b9cdbb96377e516a8fe5753d4717161703b645d7b261e69f91ca8e444b4a1aa2df96da345d24a614d12ede68700998dbb087422639b838df9f246d6b4d500
+  checksum: 0fca170e29ca60cf226f91a3d615ab65dd1d3925776807f41498622cb146dd08a29e6fcae624e33dbe5e9bf3e71146461589b3f0b9f48993021dd4d8df39a44c
   languageName: node
   linkType: hard
 
@@ -10958,6 +10958,18 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 211d7e49bda60bfdfd9cb2b4519cd02d65c166e4c67e39c815af527f7490830a8d44faecec60fa3d9d17ba9d9c15e4e1dab1cc74036bf18cd52b692293232a7c
+  languageName: node
+  linkType: hard
+
+"react-native-worklets-core@npm:^0.2.4":
+  version: 0.2.4
+  resolution: "react-native-worklets-core@npm:0.2.4"
+  dependencies:
+    string-hash-64: ^1.0.3
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 8b6746a1f2b9544d4dcdea49908324b2449fa2fe03da59a048d290ecc4dd605c9f2664ffe1800f9dfe71c281be7e2d5467fce95bdf899ad02e0b3ced080e1862
   languageName: node
   linkType: hard
 
@@ -13065,16 +13077,16 @@ __metadata:
     react: 18.2.0
     react-native: 0.72.6
     react-native-builder-bob: ^0.20.0
-    react-native-vision-camera: 3.6.3
-    react-native-worklets-core: ^0.2.2
+    react-native-vision-camera: 3.6.4
+    react-native-worklets-core: ^0.2.4
     release-it: ^15.0.0
     turbo: ^1.10.7
     typescript: 5.2.2
   peerDependencies:
     react: "*"
     react-native: "*"
-    react-native-vision-camera: ">= 3.6.3"
-    react-native-worklets-core: ">=0.2.2"
+    react-native-vision-camera: ">= 3.6.4"
+    react-native-worklets-core: ">=0.2.4"
   languageName: unknown
   linkType: soft
 
