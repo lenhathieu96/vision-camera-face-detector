@@ -27,6 +27,7 @@ export interface FaceDetectorResponse {
 /**
  * initFrameProcessorPlugin has error on init frame so cannot use
  */
+//@ts-ignore
 const plugin = VisionCameraProxy.getFrameProcessorPlugin('detectFace');
 
 export function detectFace(frame: Frame): FaceDetectorResponse {
