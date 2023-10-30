@@ -10,14 +10,19 @@ IOS target platform: 13
 ## Installation
 
 ```sh
-npm install vision-camera-face-detector-plugin
+npm install https://github.com/lenhathieu96/vision-camera-face-detector.git
 ```
 or
 
 ```sh
-yarn add vision-camera-face-detector-plugin
+yarn add https://github.com/lenhathieu96/vision-camera-face-detector.git
 ```
 
+for Yarn 3+
+
+```sh
+yarn add vision-camera-face-detector-plugin@https://github.com/lenhathieu96/vision-camera-face-detector.git
+```
 
 
 ## Usage
