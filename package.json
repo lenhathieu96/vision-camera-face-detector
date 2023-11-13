@@ -27,8 +27,9 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
-    "prepare": "bob build",
-    "release": "release-it"
+    "prepare": "sh scripts/set-workspace.sh && yarn",
+    "release": "release-it",
+    "build": "bob build"
   },
   "keywords": [
     "react-native",
@@ -157,5 +158,8 @@
     "name": "RNVisionCameraFaceDetectorPluginSpec",
     "type": "modules",
     "jsSrcsDir": "src"
-  }
+  },
+  "workspaces": [
+    "example"
+  ]
 }

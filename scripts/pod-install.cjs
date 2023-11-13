@@ -31,7 +31,7 @@ module.exports = {
           );
 
           if (result.status !== 0) {
-            throw new Error('Failed to run pod-install');
+            throw new Error('Failed to run pod-install', result);
           }
         },
       },

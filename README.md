@@ -7,7 +7,7 @@ A Face detector plugin used for react-native-vision-camera
 Android Minsdk: 26
 IOS target platform: 13
 
-## Installation
+## Download
 
 ```sh
 npm install https://github.com/lenhathieu96/vision-camera-face-detector.git
@@ -24,6 +24,16 @@ for Yarn 3+
 yarn add vision-camera-face-detector-plugin@https://github.com/lenhathieu96/vision-camera-face-detector.git
 ```
 
+## Installation
+
+
+```sh
+    brew install jq
+```
+
+```sh
+    yarn prepare
+```
 
 ## Usage
 
