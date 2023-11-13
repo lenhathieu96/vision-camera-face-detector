@@ -9,18 +9,18 @@ A Face detector plugin used for react-native-vision-camera
 ## Download
 
 ```sh
-npm install https://github.com/lenhathieu96/vision-camera-face-detector.git#latest
+npm install https://github.com/lenhathieu96/vision-camera-face-detector.git
 ```
 or
 
 ```sh
-yarn add https://github.com/lenhathieu96/vision-camera-face-detector.git#latest
+yarn add https://github.com/lenhathieu96/vision-camera-face-detector.git
 ```
 
 for Yarn 3+
 
 ```sh
-yarn add vision-camera-face-detector-plugin@https://github.com/lenhathieu96/vision-camera-face-detector.git#latest
+yarn add vision-camera-face-detector-plugin@https://github.com/lenhathieu96/vision-camera-face-detector.git
 ```
 
 ## Installation
