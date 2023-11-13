@@ -1,7 +1,8 @@
 pre-commit:
   parallel: true
-  script:
-    sh scripts/remove-workspace.sh
+  scripts:
+    "remove-workspace.sh":
+      runner: bash
   commands:
     lint:
       files: git diff --name-only @{push}
