@@ -7,7 +7,7 @@ module.exports = {
   factory() {
     return {
       hooks: {
-        registerPackageExtensions(_, __) {
+        registerPackageExtensions() {
           // Read the package.json file
           const packageJSON = JSON.parse(
             fs.readFileSync(PACKAGE_JSON_PATH, 'utf-8')
