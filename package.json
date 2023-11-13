@@ -160,5 +160,8 @@
     "name": "RNVisionCameraFaceDetectorPluginSpec",
     "type": "modules",
     "jsSrcsDir": "src"
-  }
+  },
+  "workspaces": [
+    "example"
+  ]
 }
