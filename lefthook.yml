@@ -1,5 +1,9 @@
 pre-commit:
   parallel: true
+  scripts:
+    shell:
+      name: Remove package.json workspace
+      command: echo 'remove ne' 
   commands:
     lint:
       files: git diff --name-only @{push}
