@@ -71,8 +71,6 @@ module.exports = {
           }else{
             console.log("✅ Run pod-install successfully")
           }
-
-        
         },
       },
     };
