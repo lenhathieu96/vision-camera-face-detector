@@ -6,9 +6,9 @@ PACKAGE_JSON_PATH="package.json"
 packageJSON=$(cat "$PACKAGE_JSON_PATH")
 
 # Check if workspaces key is not present
-if [[ ! "$packageJSON" =~ "workspaces:" ]]; then
+if [[ ! "$packageJSON" =~ "\"workspaces\":" ]]; then
   # Define workspaces array
-  workspaces='["example"]'
+  workspaces='[example]'
 
   # Update the package.json file
   updatedPackageJSON=$(echo "$packageJSON" | jq --arg workspaces "$workspaces" '.workspaces = $workspaces')
