@@ -27,8 +27,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
-    "prepare": "sh scripts/set-workspace.sh && yarn",
-    "abc": "sh scripts/remove-workspace.sh",
+    "prepare": "yarn install && sh scripts/set-workspace.sh",
     "release": "release-it",
     "build": "bob build"
   },
