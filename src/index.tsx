@@ -24,16 +24,14 @@ export interface FaceDetectorResponse {
   errorCode?: 101 | 102 | 103 | 104 | 105 | 106;
   frameData?: string;
 }
-/**
- * initFrameProcessorPlugin has error on init frame so cannot use
- */
-//@ts-ignore
-const plugin = VisionCameraProxy.getFrameProcessorPlugin('detectFace');
+// /**
+//  * initFrameProcessorPlugin has error on init frame so cannot use
+//  */
+const plugin = VisionCameraProxy.initFrameProcessorPlugin('detectFace', {});
 
 export function detectFace(frame: Frame): FaceDetectorResponse {
   'worklet';
   if (!plugin) {
-    console.log('asdlfjas');
     return {
       status: 0,
       faceDirection: 'unknown',
