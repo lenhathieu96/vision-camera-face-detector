@@ -6,7 +6,7 @@ PACKAGE_JSON_PATH="package.json"
 packageJSON=$(cat "$PACKAGE_JSON_PATH")
 
 # Check if workspaces key is not present
-if [[ ! "$packageJSON" =~ "\"workspaces\":" ]]; then
+if [[ ! "$packageJSON" =~ "workspaces:" ]]; then
   # Define workspaces array
   workspaces='["example"]'
 
