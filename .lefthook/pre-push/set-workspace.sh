@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PACKAGE_JSON_PATH="path/to/package.json"
+PACKAGE_JSON_PATH="package.json"
 
 # Read the package.json file
 packageJSON=$(cat "$PACKAGE_JSON_PATH")
