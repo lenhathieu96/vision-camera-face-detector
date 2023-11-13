@@ -2,7 +2,7 @@ pre-commit:
   parallel: true
   scripts:
     "remove-workspace.sh":
-      runner: bash
+      runner: sh
   commands:
     lint:
       files: git diff --name-only @{push}
