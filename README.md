@@ -32,7 +32,7 @@ brew install jq
 If you already had jq, ignore the script above:
 
 ```sh 
-yarn || yarn install
+yarn
 ```
 
 ## Usage
@@ -49,6 +49,19 @@ const response = detectFace(frame);
 
 // ...
 ```
+
+## Run example
+
+Android:
+```sh 
+yarn example android
+```
+
+iOS:
+```sh 
+yarn example ios
+```
+
 ## License
 
 MIT
