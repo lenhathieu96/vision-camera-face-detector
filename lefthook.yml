@@ -3,7 +3,7 @@ pre-commit:
   scripts:
     shell:
       name: Remove package.json workspace
-      command: echo 'remove ne' 
+      command: sh scripts/remove-workspace.sh 
   commands:
     lint:
       files: git diff --name-only @{push}
