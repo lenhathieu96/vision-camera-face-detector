@@ -66,7 +66,7 @@ public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
   }
 
   VisionCameraFaceDetectorPlugin(@Nullable Map<String, Object> options){
-    super(options)
+    super(options);
   }
 
 
