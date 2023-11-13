@@ -33,6 +33,7 @@ const plugin = VisionCameraProxy.getFrameProcessorPlugin('detectFace');
 export function detectFace(frame: Frame): FaceDetectorResponse {
   'worklet';
   if (!plugin) {
+    console.log('asdlfjas');
     return {
       status: 0,
       faceDirection: 'unknown',
