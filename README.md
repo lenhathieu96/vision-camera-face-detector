@@ -29,9 +29,10 @@ yarn add vision-camera-face-detector-plugin@https://github.com/lenhathieu96/visi
 ```sh
 brew install jq
 ```
+If you already had jq, ignore the script above:
 
 ```sh 
-yarn prepare
+yarn || yarn install
 ```
 
 ## Usage
