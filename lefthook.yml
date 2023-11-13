@@ -12,11 +12,13 @@ pre-commit:
       files: git diff --name-only @{push}
       glob: "*.{js,ts, jsx, tsx}"
       run: npx tsc --noEmit
+      
 pre-push:
   parallel: true
   scripts:
     "set-workspace.sh":
       runner: sh
+
 commit-msg:
   parallel: true
   commands:
