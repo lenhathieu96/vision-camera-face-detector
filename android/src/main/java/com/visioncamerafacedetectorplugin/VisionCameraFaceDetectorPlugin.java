@@ -1,6 +1,7 @@
 package com.visioncamerafacedetectorplugin;
 
 import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.media.Image;
 import android.util.Base64;
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.google.mlkit.vision.face.FaceDetection;
 import com.google.mlkit.vision.face.FaceDetector;
 import com.google.mlkit.vision.face.FaceDetectorOptions;
 
+import com.google.mlkit.vision.face.FaceLandmark;
 import com.mrousavy.camera.frameprocessor.Frame;
 import com.mrousavy.camera.frameprocessor.FrameProcessorPlugin;
 
@@ -27,6 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
 
   private final int MAX_STABLE = 3;
@@ -34,11 +37,12 @@ public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
   private FaceDirection _prevFaceDirection = FaceDirection.UNKNOWN;
 
   Map<String, Object> resultMap = new HashMap<>();
+
+  Map<String, Object> boundaryBox = new HashMap<>();
   FaceDetectorOptions faceDetectorOptions =
           new FaceDetectorOptions.Builder()
                   .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_ACCURATE)
                   .setLandmarkMode(FaceDetectorOptions.LANDMARK_MODE_ALL)
-                  .setClassificationMode(FaceDetectorOptions.CLASSIFICATION_MODE_ALL)
                   .build();
   FaceDetector faceDetector = FaceDetection.getClient(faceDetectorOptions);
 
@@ -74,9 +78,8 @@ public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
   public Object callback(@NonNull Frame frame, @Nullable Map<String, Object> params)  {
     try {
       Image mediaImage = frame.getImage();
-
       if (mediaImage == null) {
-        throw new FaceDetectorException(102, "null media image");
+        throw new FaceDetectorException(103, "Cannot get image from frame");
       }
 
       InputImage image = InputImage.fromMediaImage(mediaImage, Utils.convertRotationDegreeFromString(frame.getOrientation()));
@@ -84,25 +87,30 @@ public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
       List<Face> faces = Tasks.await(task);
 
       if (faces.isEmpty()) {
-        throw new FaceDetectorException( 103, "faces not found");
+        throw new FaceDetectorException( 104, "Faces not found");
       }
 
       if (faces.size() > 1) {
-        throw new FaceDetectorException(104, "Too many faces in frame");
+        throw new FaceDetectorException(105, "Too many faces in frame");
       }
 
       Face userFace = faces.get(0);
+
+      if(!Utils.isFaceInFrame(userFace.getBoundingBox(), frame.getWidth(), frame.getHeight())){
+        throw new FaceDetectorException(106, "Face is out of frame");
+      }
+
       FaceDirection _currentFaceDirection = getFaceDirection(userFace.getHeadEulerAngleX(), userFace.getHeadEulerAngleY());
-      Log.d("FaceDirection", _currentFaceDirection.name());
 
       if (_prevFaceDirection != _currentFaceDirection) {
         _prevFaceDirection = _currentFaceDirection;
-        throw new FaceDetectorException(105, "Face is transitioning");
+        throw new FaceDetectorException(107, "Face is transitioning");
       }
 
       if (stableCount < MAX_STABLE) {
         stableCount++;
-        throw new FaceDetectorException(105, "Face is transitioning");
+        //TODO: switch to standby mode
+        throw new FaceDetectorException(107, "Face is transitioning");
       }
 
       Bitmap frameInBitmap = Utils.convertImageToBitmap(image);

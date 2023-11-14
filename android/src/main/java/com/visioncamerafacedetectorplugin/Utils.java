@@ -58,7 +58,17 @@ public class Utils {
 //
 //        return averageBrightness < BRIGHTNESS_THRESHOLD;
 //    }
+    public static boolean isFaceInFrame(Rect faceBoundingBox, int frameWidth, int frameHeight){
+      int frameCenterY = frameHeight/2;
+      final int tolerance = 20;
 
+      return faceBoundingBox.left < 0 ||
+        faceBoundingBox.top < 0 ||
+        faceBoundingBox.right > frameWidth ||
+        faceBoundingBox.bottom > frameHeight ||
+        faceBoundingBox.centerY() < frameCenterY -tolerance ||
+        faceBoundingBox.centerY() > frameCenterY + tolerance;
+    }
     public static String convertKebabCase(FaceDirection faceDirection){
         return faceDirection.name().toLowerCase().replace("_", "-");
     }

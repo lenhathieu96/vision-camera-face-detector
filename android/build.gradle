@@ -1,3 +1,5 @@
+import java.nio.file.Paths
+
 buildscript {
   repositories {
     google()
@@ -110,7 +112,6 @@ dependencies {
   implementation "com.facebook.react:react-native:+"  // From node_modules
   api project(":react-native-vision-camera")
   implementation "com.google.mlkit:face-detection:16.1.5"
-
 }
 
 if (isNewArchitectureEnabled()) {
