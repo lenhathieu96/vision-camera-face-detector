@@ -7,42 +7,42 @@ export type FaceDirection =
   | 'transitioning'
   | 'unknown';
 
-export interface FaceDetectorResponse {
-  status: 0 | 1;
-  faceDirection: FaceDirection;
-  /**
-   *
-   * @ErrorCode :
-   * - 101: system error`
-   * - 102: plugin not found
-   * - 103: cannot get image from frame
-   * - 104: faces not found
-   * - 105: too many faces in frame
-   * - 106: face is out of frame
-   * - 107: faces is transitioning
-   */
+/**
+ *
+ * @ErrorCode :
+ * - 101: system error`
+ * - 102: plugin not found
+ * - 103: cannot get image from frame
+ * - 104: faces not found
+ * - 105: too many faces in frame
+ * - 106: face is out of frame
+ * - 107: face is transitioning
+ */
 
-  errorCode?: 101 | 102 | 103 | 104 | 105 | 106;
+type FaceDetectionErrorCode = 101 | 102 | 103 | 104 | 105 | 106 | 107;
+
+export type FaceDetectorResponse = {
+  status: boolean;
+  faceDirection: FaceDirection;
   frameData?: string;
-  boundaryBox?: {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
+  error?: {
+    code: FaceDetectionErrorCode;
+    message: string;
   };
-}
-// /**
-//  * initFrameProcessorPlugin has error on init frame so cannot use
-//  */
+};
+
 const plugin = VisionCameraProxy.initFrameProcessorPlugin('detectFace', {});
 
 export function detectFace(frame: Frame): FaceDetectorResponse {
   'worklet';
   if (!plugin) {
     return {
-      status: 0,
+      status: true,
       faceDirection: 'unknown',
-      errorCode: 102,
+      error: {
+        code: 102,
+        message: 'Plugin not found',
+      },
     };
   }
   //@ts-ignore

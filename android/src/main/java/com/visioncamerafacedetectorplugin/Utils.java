@@ -15,7 +15,21 @@ import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 
 public class Utils {
-    private static final int BRIGHTNESS_THRESHOLD = 128;
+  public static FaceDirection getFaceDirection(float angleX, float angleY ){
+    if(angleX < 10 && angleX > -10 && angleY > -5 && angleY < 5){
+      return FaceDirection.FRONTAL;
+    }
+
+    if(angleY > 40 &&  angleX > 0 && angleX < 20){
+      return FaceDirection.LEFT_SKEWED;
+    }
+
+    if(angleY < -40 && angleX > 0 && angleX < 20){
+      return FaceDirection.RIGHT_SKEWED;
+    }
+
+    return FaceDirection.TRANSITIONING;
+  }
     public static Bitmap convertImageToBitmap(InputImage image) {
         Image.Plane[] planes = image.getPlanes();
         ByteBuffer yBuffer = planes[0].getBuffer();
@@ -45,30 +59,18 @@ public class Utils {
         return rotatedBitmap;
     }
 
-//    public static boolean isTooDark(Bitmap image) {
-//        int averageBrightness = 0;
-//        for (int i = 0; i < image.getWidth(); i++) {
-//            for (int j = 0; j < image.getHeight(); j++) {
-//                int pixel = image.getPixel(i, j);
-//                double brightness = (0.2126 * Color.red(pixel) + 0.7152 * Color.green(pixel) + 0.0722 * Color.blue(pixel));
-//                averageBrightness += brightness;
-//            }
-//        }
-//        averageBrightness /= (image.getWidth() * image.getHeight());
-//
-//        return averageBrightness < BRIGHTNESS_THRESHOLD;
-//    }
-    public static boolean isFaceInFrame(Rect faceBoundingBox, int frameWidth, int frameHeight){
+    public static boolean isFaceOutFrame(Rect faceBoundingBox, int frameWidth, int frameHeight){
       int frameCenterY = frameHeight/2;
-      final int tolerance = 20;
+      final int tolerance = 50;
 
       return faceBoundingBox.left < 0 ||
         faceBoundingBox.top < 0 ||
         faceBoundingBox.right > frameWidth ||
         faceBoundingBox.bottom > frameHeight ||
-        faceBoundingBox.centerY() < frameCenterY -tolerance ||
+        faceBoundingBox.centerY() < frameCenterY - tolerance ||
         faceBoundingBox.centerY() > frameCenterY + tolerance;
     }
+
     public static String convertKebabCase(FaceDirection faceDirection){
         return faceDirection.name().toLowerCase().replace("_", "-");
     }

@@ -1,7 +1,6 @@
 package com.visioncamerafacedetectorplugin;
 
 import android.graphics.Bitmap;
-import android.graphics.Rect;
 import android.media.Image;
 import android.util.Base64;
 import android.util.Log;
@@ -17,7 +16,6 @@ import com.google.mlkit.vision.face.FaceDetection;
 import com.google.mlkit.vision.face.FaceDetector;
 import com.google.mlkit.vision.face.FaceDetectorOptions;
 
-import com.google.mlkit.vision.face.FaceLandmark;
 import com.mrousavy.camera.frameprocessor.Frame;
 import com.mrousavy.camera.frameprocessor.FrameProcessorPlugin;
 
@@ -37,8 +35,6 @@ public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
   private FaceDirection _prevFaceDirection = FaceDirection.UNKNOWN;
 
   Map<String, Object> resultMap = new HashMap<>();
-
-  Map<String, Object> boundaryBox = new HashMap<>();
   FaceDetectorOptions faceDetectorOptions =
           new FaceDetectorOptions.Builder()
                   .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_ACCURATE)
@@ -46,27 +42,11 @@ public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
                   .build();
   FaceDetector faceDetector = FaceDetection.getClient(faceDetectorOptions);
 
-  private FaceDirection getFaceDirection(float angleX, float angleY ){
-    if(angleX < 10 && angleX > -10 && angleY > -5 && angleY < 5){
-      return FaceDirection.FRONTAL;
-    }
-
-    if(angleY > 40 &&  angleX > 0 && angleX < 20){
-      return FaceDirection.LEFT_SKEWED;
-    }
-
-    if(angleY < -40 && angleX > 0 && angleX < 20){
-      return FaceDirection.RIGHT_SKEWED;
-    }
-
-    return FaceDirection.TRANSITIONING;
-  }
-
-  private void setErrorResult(int errorCode){
-    resultMap.put("status", 0);
-    resultMap.put("errorCode",errorCode);
+  private void setErrorResult(FaceDetectorException error){
+    resultMap.put("status", false);
     resultMap.put("faceDirection", Utils.convertKebabCase(FaceDirection.UNKNOWN));
-    resultMap.put("frameData", "");
+    resultMap.put("error", error.toHashMap());
+    resultMap.put("frameData", null);
   }
 
   VisionCameraFaceDetectorPlugin(@Nullable Map<String, Object> options){
@@ -93,47 +73,45 @@ public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
       if (faces.size() > 1) {
         throw new FaceDetectorException(105, "Too many faces in frame");
       }
-
       Face userFace = faces.get(0);
 
-      if(!Utils.isFaceInFrame(userFace.getBoundingBox(), frame.getWidth(), frame.getHeight())){
+      //Detect does face is out of frame
+      if(Utils.isFaceOutFrame(userFace.getBoundingBox(), frame.getWidth(), frame.getHeight())){
         throw new FaceDetectorException(106, "Face is out of frame");
       }
 
-      FaceDirection _currentFaceDirection = getFaceDirection(userFace.getHeadEulerAngleX(), userFace.getHeadEulerAngleY());
-
+      //Get Face Direction
+      FaceDirection _currentFaceDirection = Utils.getFaceDirection(userFace.getHeadEulerAngleX(), userFace.getHeadEulerAngleY());
       if (_prevFaceDirection != _currentFaceDirection) {
         _prevFaceDirection = _currentFaceDirection;
         throw new FaceDetectorException(107, "Face is transitioning");
       }
-
       if (stableCount < MAX_STABLE) {
         stableCount++;
         //TODO: switch to standby mode
         throw new FaceDetectorException(107, "Face is transitioning");
       }
 
-      Bitmap frameInBitmap = Utils.convertImageToBitmap(image);
       //Convert frame bitmap to base64
+      Bitmap frameInBitmap = Utils.convertImageToBitmap(image);
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
       frameInBitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
       String frameInBase64 =  Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
-
       stableCount = 0;
-      resultMap.put("status", 1);
-      resultMap.put("errorCode", -1);
+
+      resultMap.put("status", true);
       resultMap.put("faceDirection", Utils.convertKebabCase(_currentFaceDirection));
       resultMap.put("frameData", frameInBase64);
       return resultMap;
 
     } catch (FaceDetectorException e) {
       Log.e("FaceDetection", e.getMessage());
-      setErrorResult(e.getErrorCode());
+      setErrorResult(e);
       return resultMap;
     }
     catch (Exception e){
       Log.e("FaceDetection", e.toString());
-      setErrorResult(101);
+      setErrorResult( new FaceDetectorException(101, "System Error"));
       return resultMap;
     }
   }

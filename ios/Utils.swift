@@ -23,21 +23,16 @@ class Utils {
       }
         return FaceDirection.transitioning
     }
-
-    static func getBoundingBox(from face: Face) -> BoundingBox {
-        let frameRect = face.frame
-        return BoundingBox(x: frameRect.origin.x, y: frameRect.origin.y, width: frameRect.size.width, height: frameRect.size.height)
-    }
     
-    static func isFaceInFrame(faceBoundingBox: BoundingBox, frameWidth: Int32, frameHeight: Int32)-> Bool{
-        let frameCenterY = CGFloat(frameHeight)/2
-        let tolerance: CGFloat = 20
-
+    static func isFaceOutOfFrame(faceBoundingBox: FaceBoundingBox, frameWidth: Int, frameHeight: Int)-> Bool{
+        let frameCenterY = Double(frameHeight)/2
+        let tolerance = 100.0
+        
         return  faceBoundingBox.left < 0 ||
                 faceBoundingBox.top < 0 ||
-                Int32(faceBoundingBox.right) > frameWidth ||
-                Int32(faceBoundingBox.bottom) > frameHeight ||
-                CGFloat(faceBoundingBox.centerY) < frameCenterY - tolerance ||
-                CGFloat(faceBoundingBox.centerY) > frameCenterY + tolerance
+                faceBoundingBox.right > CGFloat(frameWidth) ||
+                faceBoundingBox.bottom > CGFloat( frameHeight) ||
+                faceBoundingBox.centerY <  Double(frameCenterY - tolerance)   ||
+                faceBoundingBox.centerY > Double(frameCenterY + tolerance)
     }
 }

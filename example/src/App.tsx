@@ -17,26 +17,47 @@ import {
 const CAMERA_SIZE = 250;
 
 export default function App() {
-  const [errorCode, setErrorCode] = useState<number>(-1);
+  const [errMessage, setErrMessage] = useState<string>('');
   const [base64Frame, setBase64Frame] = useState<string>('');
+  const [submitting, setSubmitting] = useState<boolean>(false);
 
   const device = useCameraDevice('front');
   const { hasPermission, requestPermission } = useCameraPermission();
 
+  const submitSever = (frameData: string) => {
+    setSubmitting(true);
+    setErrMessage('');
+    setBase64Frame(frameData);
+    return new Promise((res) => {
+      setTimeout(() => {
+        setSubmitting(false);
+        setBase64Frame('');
+        res('data ne');
+      }, 4000);
+    });
+  };
+
   const onGetFaceDetectorResponse = Worklets.createRunInJsFn(
-    (res: FaceDetectorResponse) => {
-      setErrorCode(res.errorCode ?? -1);
-      if (res.status === 1 && res.frameData) {
-        setBase64Frame(res.frameData);
+    async (res: FaceDetectorResponse) => {
+      if (res.status && res.frameData) {
+        await submitSever(res.frameData);
+      } else if (res.error) {
+        setErrMessage(res.error?.message);
       }
     }
   );
 
-  const frameProcessor = useFrameProcessor((frame) => {
-    'worklet';
-    const response = detectFace(frame);
-    onGetFaceDetectorResponse(response);
-  }, []);
+  const frameProcessor = useFrameProcessor(
+    (frame) => {
+      'worklet';
+      if (submitting) {
+        return;
+      }
+      const response = detectFace(frame);
+      onGetFaceDetectorResponse(response);
+    },
+    [submitting]
+  );
 
   useEffect(() => {
     if (!hasPermission) {
@@ -59,7 +80,7 @@ export default function App() {
         pixelFormat="yuv"
       />
     );
-  }, [device, hasPermission]);
+  }, [device, hasPermission, frameProcessor]);
 
   const renderFrame = useCallback(() => {
     return (
@@ -74,7 +95,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View style={styles.cameraContainer}>{renderCamera()}</View>
       {renderFrame()}
-      <Text>{`Error code: ${errorCode}`}</Text>
+      <Text>{`Error: ${errMessage}`}</Text>
     </SafeAreaView>
   );
 }

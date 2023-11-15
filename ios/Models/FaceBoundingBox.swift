@@ -6,25 +6,26 @@
 //
 
 import Foundation
-struct BoundingBox {
+
+struct FaceBoundingBox {
     var x: Double
     var y: Double
     var width: Double
     var height: Double
     
-    var top: CGFloat {
+    var top: Double {
         return y
     }
 
-    var left: CGFloat {
+    var left: Double {
         return x
     }
 
-    var bottom: CGFloat {
+    var bottom: Double {
         return y + height
     }
 
-    var right: CGFloat {
+    var right: Double {
         return x + width
     }
     
@@ -36,11 +37,11 @@ struct BoundingBox {
         return y + (height / 2)
     }
     
-    init(x: Double, y: Double, width: Double, height: Double) {
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
+    init(rect: CGRect) {
+        self.x = rect.origin.x
+        self.y = rect.origin.y
+        self.width = rect.size.width
+        self.height = rect.size.height
     }
 }
 
