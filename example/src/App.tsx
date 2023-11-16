@@ -10,6 +10,7 @@ import {
 import { Worklets } from 'react-native-worklets-core';
 
 import {
+  FaceDetectionStatus,
   FaceDetectorResponse,
   detectFace,
 } from 'vision-camera-face-detector-plugin';
@@ -20,6 +21,7 @@ export default function App() {
   const [errMessage, setErrMessage] = useState<string>('');
   const [base64Frame, setBase64Frame] = useState<string>('');
   const [submitting, setSubmitting] = useState<boolean>(false);
+  const [status, setStatus] = useState<FaceDetectionStatus>('success');
 
   const device = useCameraDevice('front');
   const { hasPermission, requestPermission } = useCameraPermission();
@@ -39,10 +41,22 @@ export default function App() {
 
   const onGetFaceDetectorResponse = Worklets.createRunInJsFn(
     async (res: FaceDetectorResponse) => {
-      if (res.status && res.frameData) {
-        await submitSever(res.frameData);
-      } else if (res.error) {
-        setErrMessage(res.error?.message);
+      setStatus(res.status);
+      switch (res.status) {
+        case 'error': {
+          if (res.error) {
+            setErrMessage(res.error.message);
+          }
+          break;
+        }
+        case 'success': {
+          if (res.frameData) {
+            submitSever(res.frameData);
+          }
+          break;
+        }
+        default:
+          break;
       }
     }
   );
@@ -95,7 +109,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View style={styles.cameraContainer}>{renderCamera()}</View>
       {renderFrame()}
-      <Text>{`Error: ${errMessage}`}</Text>
+      <Text>{status === 'error' ? `Error: ${errMessage}` : status}</Text>
     </SafeAreaView>
   );
 }

@@ -7,15 +7,16 @@ import CoreImage
 
 @objc(VisionCameraFaceDetectorPlugin)
 public class VisionCameraFaceDetectorPlugin: FrameProcessorPlugin {
-    let MAX_STABLE = 3
+    let MAX_DIFFERENCE = 3
     let faceDetectorOptions = FaceDetectorOptions()
+
     
-    var result: [String: Any] = ["status": false, "faceDirection": FaceDirection.unknown.rawValue, "error": FaceDetectionError(code: 102, message:"Plugin not found").toDictionary()]
-    var stableCount = 0
+    var result: [String: Any] = ["status": "error", "faceDirection": FaceDirection.unknown.rawValue, "error": FaceDetectionError(code: 102, message:"Plugin not found").toDictionary()]
     var _prevFaceDirection = FaceDirection.unknown
-        
+    var _firstDetectedTime = 0
+    
     private func setErrorResult(errorCode: Int, errorMessage: String) {
-        self.result = ["status": false, "faceDirection": FaceDirection.unknown.rawValue, "error": FaceDetectionError(code: errorCode, message: errorMessage).toDictionary()]
+        self.result = ["status": "error", "faceDirection": FaceDirection.unknown.rawValue, "error": FaceDetectionError(code: errorCode, message: errorMessage).toDictionary()]
     }
     
     class func newInstance() -> VisionCameraFaceDetectorPlugin {
@@ -71,13 +72,20 @@ public class VisionCameraFaceDetectorPlugin: FrameProcessorPlugin {
               self.setErrorResult(errorCode: 107,errorMessage: "Face is transitioning") // face is transitioning
               return
             }
-            if(self.stableCount < self.MAX_STABLE){
-              self.stableCount+=1
-              //TODO: switch to standby mode
-              self.setErrorResult(errorCode: 107, errorMessage: "Face is transitioning") // face is transitioning
-              return
+            
+            //standby mode
+            let nowInSec = Int(Int64(Date().timeIntervalSince1970))
+            if(self._firstDetectedTime == 0){
+                self._firstDetectedTime = nowInSec
+                self.result = ["status": "standby", "faceDirection": _curFaceDirection.rawValue]
+                return
             }
-        
+            let difference = nowInSec - self._firstDetectedTime
+            if (difference < self.MAX_DIFFERENCE) {
+                self.result = ["status": "standby", "faceDirection": _curFaceDirection.rawValue]
+                return
+            }
+            
             //convert frame to base64 image data
             guard let imageBuffer = buffer.imageBuffer else {
               self.setErrorResult(errorCode: 102, errorMessage: "Cannot get image from frame") //cannot get image from frame
@@ -94,7 +102,7 @@ public class VisionCameraFaceDetectorPlugin: FrameProcessorPlugin {
             let frameData = imageData?.base64EncodedString()
         
             //set base64 FrameData to result
-            self.result = ["status": true, "faceDirection": _curFaceDirection.rawValue, "frameData": frameData ?? ""]
+            self.result = ["status": "success", "faceDirection": _curFaceDirection.rawValue, "frameData": frameData ?? ""]
       }
       return result
   }

@@ -20,9 +20,10 @@ export type FaceDirection =
  */
 
 type FaceDetectionErrorCode = 101 | 102 | 103 | 104 | 105 | 106 | 107;
+export type FaceDetectionStatus = 'success' | 'standby' | 'error';
 
 export type FaceDetectorResponse = {
-  status: boolean;
+  status: FaceDetectionStatus;
   faceDirection: FaceDirection;
   frameData?: string;
   error?: {
@@ -37,7 +38,7 @@ export function detectFace(frame: Frame): FaceDetectorResponse {
   'worklet';
   if (!plugin) {
     return {
-      status: true,
+      status: 'error',
       faceDirection: 'unknown',
       error: {
         code: 102,

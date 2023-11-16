@@ -19,10 +19,13 @@ import com.google.mlkit.vision.face.FaceDetectorOptions;
 import com.mrousavy.camera.frameprocessor.Frame;
 import com.mrousavy.camera.frameprocessor.FrameProcessorPlugin;
 
+import com.visioncamerafacedetectorplugin.models.FaceDetectionStatus;
 import com.visioncamerafacedetectorplugin.models.FaceDetectorException;
 import com.visioncamerafacedetectorplugin.models.FaceDirection;
 
 import java.io.ByteArrayOutputStream;
+import java.sql.Time;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,8 +33,8 @@ import java.util.Map;
 
 public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
 
-  private final int MAX_STABLE = 3;
-  private int stableCount = 0;
+  private final int MAX_DIFFERENCE = 5;
+  private Long firstDetectedTime = 0L;
   private FaceDirection _prevFaceDirection = FaceDirection.UNKNOWN;
 
   Map<String, Object> resultMap = new HashMap<>();
@@ -43,7 +46,7 @@ public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
   FaceDetector faceDetector = FaceDetection.getClient(faceDetectorOptions);
 
   private void setErrorResult(FaceDetectorException error){
-    resultMap.put("status", false);
+    resultMap.put("status", FaceDetectionStatus.ERROR.name().toLowerCase());
     resultMap.put("faceDirection", Utils.convertKebabCase(FaceDirection.UNKNOWN));
     resultMap.put("error", error.toHashMap());
     resultMap.put("frameData", null);
@@ -86,10 +89,20 @@ public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
         _prevFaceDirection = _currentFaceDirection;
         throw new FaceDetectorException(107, "Face is transitioning");
       }
-      if (stableCount < MAX_STABLE) {
-        stableCount++;
-        //TODO: switch to standby mode
-        throw new FaceDetectorException(107, "Face is transitioning");
+
+      //Enter standby mode on
+      Long now = Instant.now().getEpochSecond();
+      if(firstDetectedTime == 0L ){
+        firstDetectedTime = now;
+        resultMap.put("status", FaceDetectionStatus.STANDBY.name().toLowerCase());
+        resultMap.put("faceDirection", Utils.convertKebabCase(_currentFaceDirection));
+        return resultMap;
+      }
+      Long difference = now - firstDetectedTime;
+      if (difference < MAX_DIFFERENCE) {
+        resultMap.put("status", FaceDetectionStatus.STANDBY.name().toLowerCase());
+        resultMap.put("faceDirection", Utils.convertKebabCase(_currentFaceDirection));
+        return resultMap;
       }
 
       //Convert frame bitmap to base64
@@ -97,9 +110,9 @@ public class VisionCameraFaceDetectorPlugin extends FrameProcessorPlugin {
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
       frameInBitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
       String frameInBase64 =  Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
-      stableCount = 0;
+      firstDetectedTime = now;
 
-      resultMap.put("status", true);
+      resultMap.put("status", FaceDetectionStatus.SUCCESS.name().toLowerCase());
       resultMap.put("faceDirection", Utils.convertKebabCase(_currentFaceDirection));
       resultMap.put("frameData", frameInBase64);
       return resultMap;
